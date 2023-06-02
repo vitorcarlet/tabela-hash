@@ -64,7 +64,7 @@ void inserir_na_lista(Lista *lista, char nome[]) {
         lista->tam++;
       
     } else {
-        printf("\n\tErro ao alocar memÛria!\n");
+        printf("\n\tErro ao alocar mem√≥ria!\n");
       
     }
 }
@@ -89,7 +89,7 @@ int inserir_na_lista_com_retorno(Lista *lista, char nome[]) {
         lista->tam++;
       
     } else {
-        printf("\n\tErro ao alocar memÛria!\n");
+        printf("\n\tErro ao alocar mem√≥ria!\n");
         return 0;
       
     }
@@ -136,7 +136,7 @@ void busca(Lista t[], char nome[]) {
     if(buscar_na_lista(&t[id], nome) != NULL){
         printf("%s foi encontrado na lista %d", nome,id);
     }else{
-    	printf("%s n„o foi encontrado em nenhuma das listas.", nome);
+    	printf("%s n√£o foi encontrado em nenhuma das listas.", nome);
 	};
 }
 
@@ -146,7 +146,7 @@ void inserir_com_retorno(Lista t[], char nome[]) {
     if(inserir_na_lista_com_retorno(&t[id], nome)){
     	printf("%s foi inserido na lista %d da tabela hash", nome, id);
 	}else{
-		printf("n„o foi possÌvel inserir o %s na tabela", nome);
+		printf("n√£o foi poss√≠vel inserir o %s na tabela", nome);
 	}
 }
 
@@ -223,7 +223,7 @@ int naoDigiteNumeros(char opcao[]){
     if (isOnlyNonNumeric) {
         return 1;
     } else {
-        printf("OpÁ„o inv·lida. Digite apenas caracteres n„o numÈricos.\n");
+        printf("Op√ß√£o inv√°lida. Digite apenas caracteres n√£o num√©ricos.\n");
     }
 
 }
@@ -236,7 +236,7 @@ void exibirHistograma(Lista t[]) {
     int maxCount = 0;
     int setNum = 20;
 
-    // Encontrar o tamanho m·ximo das listas
+    // Encontrar o tamanho m√°ximo das listas
     for (i = 0; i < TAM; i++) {
         if (t[i].tam > maxCount) {
             maxCount = t[i].tam;
@@ -244,7 +244,7 @@ void exibirHistograma(Lista t[]) {
     }
 
     // Exibir o histograma
-    printf("Histograma dos n˙meros das listas hash:\n");
+    printf("Histograma dos n√∫meros das listas hash:\n");
     for (i = maxCount; i > 0; i -= 50) {
     	if(i < 100)
         printf("%2d   |", i);
@@ -308,7 +308,8 @@ void print_menu() {
     printf("3. Imprimir listas\n");
     printf("4. Ordenar listas\n");
     printf("5. Exibir Histograma\n");
-     printf("6. Sair\n");
+     printf("6. Exportar Tamanho das Tabelas para arquivo .csv\n");
+     printf("7. Sair\n");
     printf("************************************\n");
 }
 
@@ -325,7 +326,7 @@ int main() {
 
     if (arquivo == NULL) {
         printf("Erro ao abrir o arquivo.\n");
-        return 1;
+        return 0;
     }
 
     while (fgets(linha, sizeof(linha), arquivo) != NULL) {
@@ -335,7 +336,6 @@ int main() {
 
     fclose(arquivo);
     
-    exportarTamanhoTabelas(tabela);
 
     int escolha;
     char nome[50];
@@ -345,7 +345,7 @@ int main() {
         print_menu();
    
        
-        printf("Escolha uma opÁ„o: ");
+        printf("Escolha uma op√ß√£o: ");
 		scanf("%d", &escolha);
 	
 
@@ -385,13 +385,17 @@ int main() {
                 clear_screen();
 				exibirHistograma(tabela);             
                 break;
-            case 6:
+            case 6: {
+                exportarTamanhoTabelas(tabela);
+                break;
+            }    
+            case 7:
                 clear_screen();
                 printf("Encerrando o programa...\n");
                 break;
             default:
                 clear_screen();
-                printf("OpÁ„o inv·lida. Tente novamente.\n");
+                printf("Op√ß√£o inv√°lida. Tente novamente.\n");
                 break;
         }
         
@@ -400,8 +404,7 @@ int main() {
         getchar();
         getchar();
 
-    } while (escolha != 6);
+    } while (escolha != 7);
 
     return 0;
 }
-
