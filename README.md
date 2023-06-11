@@ -26,11 +26,14 @@ gcc tabela_hash.c -o tabela_hash
 O programa oferece as seguintes funcionalidades:
 
 1. Inserir nome: Permite inserir um nome na tabela hash.
-2. Buscar nome: Permite pesquisar um nome na tabela hash.
-3. Imprimir listas: Exibe todos os nomes presentes na tabela hash, separados por lista.
-4. Ordenar listas: Ordena os nomes em cada lista da tabela hash.
-5. Exibir histograma: Mostra um histograma do número de elementos em cada lista da tabela hash.
-6. Sair: Encerra o programa.
+2. Remover Nome: Permite remover um nome da tabela hash.
+3. Buscar nome: Permite pesquisar um nome na tabela hash.
+4. Imprimir listas: Exibe todos os nomes presentes na tabela hash, separados por lista.
+5. Ordenar listas: Ordena os nomes em cada lista da tabela hash.
+6. Exibir histograma: Mostra um histograma do número de elementos em cada lista da tabela hash.
+7. Exportar Tamanho das tabelas para arquivo .csv: Exportação do tamanho de todas as listas para uma tabela .csv
+8. Exibir tabela de contagem por letra do alfabeto: Exibe quantas nomes existem na tabela Hash por letra do alfabeto.
+9. Sair: Encerra o programa.
 
 ## Arquivos de entrada
 
